@@ -72,9 +72,9 @@
           <div class="sm:col-span-3">
             <div class=" ">
               <q-select
-                @update:model-value="getDataConsecutive"
                 filled
                 v-model="filter_expertise"
+                @update:model-value="getDataConsecutive"
                 label="EXPERTICIA"
                 transition-show="jump-up"
                 transition-hide="jump-up"
@@ -677,7 +677,9 @@ export default {
       } catch (error) {}
     };
 
-    onMounted(getDataConsecutive);
+    onMounted(() => {
+      getDataConsecutive();
+    });
 
     return {
       fixed,
